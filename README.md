@@ -67,13 +67,14 @@ Simply set `"access_token"` in your `config.json` file under the `"platform": "N
 
 Google Accounts (mandatory for new Nest devices after August 2019, with an optional migration for earlier accounts) are now supported. Setting up a Google Account with homebridge-nest is a pain, but only needs to be done once, as long as you don't log out of your Google Account.
 
-Google Accounts are configured using the `"googleAuth"` object in `config.json`, which contains two fields, `"issueToken"` and `"cookies"`, and looks like this:
+Google Accounts are configured using the `"googleAuth"` object in `config.json`, which contains three fields, `"issueToken"`, `"cookies"` and `"apiKey"`, and looks like this:
 
 ```
       "platform": "Nest",
       "googleAuth": {
         "issueToken": "https://accounts.google.com/o/oauth2/iframerpc?action=issueToken...",
-        "cookies": "OCAK=TOMPYI3cCPAt...; SID=ogftnk...; HSID=ApXSR...; ...; SIDCC=AN0-TYt..."
+        "cookies": "OCAK=TOMPYI3cCPAt...; SID=ogftnk...; HSID=ApXSR...; ...; SIDCC=AN0-TYt...",
+        "apiKey": "AIzaSyAdkSIMNc51XGNEAYWasX9UOWkS5P6sZE4"
       },
 ```
 
@@ -90,6 +91,7 @@ The values of `"issueToken"` and `"cookies"` are specific to your Google Account
 9. Several network calls will appear in the Dev Tools window. Click on the last `iframe` call.
 10. In the Headers tab, under Request Headers, copy the entire `cookie` (**include the whole string which is several lines long and has many field/value pairs** - do not include the `cookie:` name). This is your `"cookies"` in `config.json`.
 11. Do not log out of `home.nest.com`, as this will invalidate your credentials. Just close the browser tab.
+12. The apiKey is "AIzaSyAdkSIMNc51XGNEAYWasX9UOWkS5P6sZE4" for all accounts.
 
 # HomeKit Accessory Types
 
